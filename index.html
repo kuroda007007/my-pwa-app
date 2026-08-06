@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- スマホでの表示を最適化 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>サンプルWebアプリ</title>
+
+    <!-- 1. ホーム画面に追加したときのアプリ名 -->
+    <meta name="apple-mobile-web-app-title" content="マイアプリ">
+    
+    <!-- 2. フルスクリーンモード（SafariのURLバーなどを隠してネイティブアプリのように見せる） -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- 3. ステータスバー（時計や電池残量の帯）の色を指定 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- 4. ホーム画面に表示されるアイコンの指定 (これが一番重要です) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+
+    <!-- (推奨) モダンなPWA用のマニフェストファイル -->
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center; 
+            margin: 0; 
+            padding: 50px 20px; 
+            background-color: #f2f2f7; 
+        }
+        h1 { color: #1c1c1e; }
+        .box { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+        }
+    </style>
+</head>
+<body>
+    <h1>こんにちは！</h1>
+    <div class="box">
+        <p>これはiPhoneのホーム画面に追加できる<br>サンプルWebアプリです。</p>
+        <p>ホーム画面から起動すると、<br>URLバーの無いアプリ画面になります。</p>
+    </div>
+</body>
+</html>
