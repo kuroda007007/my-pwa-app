@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <!-- スマホでの表示を最適化 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>サンプルWebアプリ</title>
-
-    <!-- 1. ホーム画面に追加したときのアプリ名 -->
-    <meta name="apple-mobile-web-app-title" content="マイアプリ">
-    
-    <!-- 2. フルスクリーンモード（SafariのURLバーなどを隠してネイティブアプリのように見せる） -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    
-    <!-- 3. ステータスバー（時計や電池残量の帯）の色を指定 -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!-- 4. ホーム画面に表示されるアイコンの指定 (これが一番重要です) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
-
-    <!-- (推奨) モダンなPWA用のマニフェストファイル -->
-    <link rel="manifest" href="manifest.json">
-
-    <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            text-align: center; 
-            margin: 0; 
-            padding: 50px 20px; 
-            background-color: #f2f2f7; 
-        }
-        h1 { color: #1c1c1e; }
-        .box { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 16px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>在庫管理システム</title>
+  
+  <!-- ★対策①：検索エンジンに登録させない（Google検索に出ないようにする） -->
+  <meta name="robots" content="noindex, nofollow">
+  
+  <meta name="apple-mobile-web-app-title" content="ダイヤ">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+  <link rel="manifest" href="manifest.json">
+  
+  <script>
+    // 画面が開いた瞬間、暗号化されたURLを復元してGASへ飛ぶ
+    window.onload = function() {
+      // ★対策②：ここに手順1で作った「URLの暗号（Base64）」を貼り付ける
+      const hiddenUrl = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9hL21hY3Jvcy9kYWl5YWsuY28uanAvcy9BS2Z5Y2J5RHByYXFJMEc1OENsZ1daNUxvbEdJYk5Zb043M2lweEpkQzktV3h3X082UElhOUROQnNjOWZRR0ZHNTBGQWZ0Sk8vZXhlYw==";
+      
+      try {
+        // 暗号を元のURL（https://...）に戻して移動する
+        window.location.href = atob(hiddenUrl);
+      } catch(e) {
+        console.error("接続に失敗しました");
+      }
+    };
+  </script>
 </head>
-<body>
-    <h1>こんにちは！</h1>
-    <div class="box">
-        <p>これはiPhoneのホーム画面に追加できる<br>サンプルWebアプリです。</p>
-        <p>ホーム画面から起動すると、<br>URLバーの無いアプリ画面になります。</p>
-    </div>
+<body style="background-color: #f0f4f8; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  
+  <!-- 自動で飛ぶ間（一瞬）に表示される待機画面 -->
+  <div style="text-align: center; color: #64748b;">
+    <div style="font-size: 48px; margin-bottom: 15px;">📦</div>
+    <div style="font-weight: bold; font-size: 16px;">システムを起動しています...</div>
+  </div>
+  
 </body>
 </html>
